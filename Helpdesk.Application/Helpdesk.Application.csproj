@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.6.2" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Helpdesk.Model\Helpdesk.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BusinessLogic\ApproverMappingBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\ApproverMappingBL\Command\Update\" />    
+    <Folder Include="BusinessLogic\ApproverMappingBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\ConsultantMappingBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\ConsultantMappingBL\Command\Update\" />
+    <Folder Include="BusinessLogic\ConsultantMappingBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\CountryBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\CountryBL\Command\Update\" />
+    <Folder Include="BusinessLogic\CountryBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\IssueCatagoryBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\IssueCatagoryBL\Command\Update\" />
+    <Folder Include="BusinessLogic\IssueCatagoryBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\IssueSubCatagoryBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\IssueSubCatagoryBL\Command\Update\" />
+    <Folder Include="BusinessLogic\IssueSubCatagoryBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\IssueTypeBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\IssueTypeBL\Command\Update\" />
+    <Folder Include="BusinessLogic\IssueTypeBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\LocationTypeBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\LocationTypeBL\Command\Update\" />
+    <Folder Include="BusinessLogic\LocationTypeBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\LocationBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\LocationBL\Command\Update\" />
+    <Folder Include="BusinessLogic\LocationBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\TicketBL\Query\GetLastTikcetNumber\" />
+    <Folder Include="BusinessLogic\TicketHistoryBL\Command\Delete\" />
+    <Folder Include="BusinessLogic\TicketHistoryBL\Command\Update\" />
+    <Folder Include="BusinessLogic\TicketHistoryBL\Query\GetById\" />
+    <Folder Include="BusinessLogic\TicketHistoryBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\TicketApprovalBL\Command\Add\" />
+    <Folder Include="BusinessLogic\TicketApprovalBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\TicketApprovalBL\Command\Update\" />
+    <Folder Include="BusinessLogic\TicketApprovalBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\TicketApprovalBL\Query\GetById\" />
+    <Folder Include="BusinessLogic\TicketUploadBL\Command\Add\" />
+    <Folder Include="BusinessLogic\TicketUploadBL\Command\Delete\" />
+    <Folder Include="BusinessLogic\TicketUploadBL\Command\Update\" />
+    <Folder Include="BusinessLogic\TicketUploadBL\Query\GetById\" />
+    <Folder Include="BusinessLogic\TicketUploadBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\UserRoleBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\UserRoleBL\Command\Update\" />
+    <Folder Include="BusinessLogic\UserRoleBL\Query\GetByFilter\" />
+    <Folder Include="BusinessLogic\UserBL\Command\Remove\" />
+    <Folder Include="BusinessLogic\UserBL\Command\Update\" />
+    <Folder Include="BusinessLogic\UserBL\Query\GetByFilter\" />
+  </ItemGroup>
+
+</Project>
