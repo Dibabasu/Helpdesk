@@ -2,7 +2,6 @@
 using Helpdesk.Domain.Entities;
 using Helpdesk.Domain.ValueObjects;
 using Helpdesk.Model.Models.Create;
-using Helpdesk.Models;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

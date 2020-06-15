@@ -1,4 +1,6 @@
-﻿using Helpdesk.Application.BusinessLogic.StatusBL.Query.GetbyCode;
+﻿using Helpdesk.Application.BusinessLogic.LastTicketBL.Command.Update;
+using Helpdesk.Application.BusinessLogic.LastTicketBL.Query.GetLastTicketByYear;
+using Helpdesk.Application.BusinessLogic.StatusBL.Query.GetbyCode;
 using Helpdesk.Application.BusinessLogic.TicketHistoryBL.Command.Add;
 using Helpdesk.Application.Interface;
 using Helpdesk.Application.Models.Ticket;
@@ -33,11 +35,25 @@ namespace Helpdesk.Application.BusinessLogic.TicketBL.Command.AddTicket
                 CreateNewTicketCommand request,
                 CancellationToken cancellationToken)
             {
-                using (var trans = _context.Database.BeginTransaction())
+                using var trans = _context.Database.BeginTransaction();
+                try
                 {
                     var helpdeskTicket = await AddHelpdeskTicket(request, cancellationToken);
                     await AddHelpdeskHistory(helpdeskTicket, request.UserModel);
+                    trans.Commit();
                     return Unit.Value;
+                }
+                catch (Exception)
+                {
+                    await trans.RollbackAsync();
+                    throw;
+
+                }
+
+                finally
+                {
+                    trans.Dispose();
+
                 }
             }
             private async Task<Unit> AddHelpdeskHistory(HelpdeskTicket TicketDetails, UserModel request)
@@ -78,18 +94,38 @@ namespace Helpdesk.Application.BusinessLogic.TicketBL.Command.AddTicket
                             {
                                 StatusCode = Constants.NewTicketStatus
                             }
-                            ).Result.Id
+                            ).Result.Id,
+                        TicketNumber = GetTicketNumber(out long UpdateTicketNo)
+
                     };
                     _context.Set<HelpdeskTicket>().Add(entity);
 
                     await _context.SaveChangesAsync(cancellationToken);
 
+                    await _mediator.Send(new UpdateLastTicketCommand
+                    {
+                        TicketNumber = UpdateTicketNo
+                    });
+
                     return entity;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
+            }
+            private string GetTicketNumber(out long UpdateTicketno)
+            {
+
+
+                long LastTicekt = _mediator.Send(new GetLastTicketByYearCommand()).Result.LastTicketNo + 1;
+                string TicketNo = String.Format("{0}{1}{2}",
+                    DateTime.UtcNow.Year.ToString(),
+                    DateTime.UtcNow.Month.ToString(Constants.monthFormat),
+                    LastTicekt.ToString(Constants.TicketNumberFormat)
+                    );
+                UpdateTicketno = LastTicekt;
+                return TicketNo;
             }
         }
     }

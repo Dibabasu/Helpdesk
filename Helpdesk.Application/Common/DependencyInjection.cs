@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FluentValidation;
+﻿using FluentValidation;
 using Helpdesk.Application.Common.Behaviour;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +10,7 @@ namespace Helpdesk.Application.Common
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            
+
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));

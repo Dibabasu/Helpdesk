@@ -4,14 +4,16 @@ using Helpdesk.Persistence.MSSQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Helpdesk.Persistence.MSSQL.Migrations
 {
     [DbContext(typeof(MsSqlHelpdeskDbContext))]
-    partial class MsSqlHelpdeskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200614202024_Last Ticket Table")]
+    partial class LastTicketTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

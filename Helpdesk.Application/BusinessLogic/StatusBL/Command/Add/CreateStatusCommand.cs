@@ -31,8 +31,8 @@ namespace Helpdesk.Application.BusinessLogic.StatusBL.Command.Add
                 {
                     Description = request.StatusModel.Description,
                     StatusCode = request.StatusModel.StatusCode.ToUpper(),
-                    CreatedBy=request.UserModel.UserName,
-                    LastModifiedBy=request.UserModel.UserName
+                    CreatedBy = request.UserModel.UserName,
+                    LastModifiedBy = request.UserModel.UserName
                 };
 
                 _context.Set<Status>().Add(entity);

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using Helpdesk.Model.Common.AutoMapper.Interface;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Helpdesk.Model.Common.AutoMapper
 {

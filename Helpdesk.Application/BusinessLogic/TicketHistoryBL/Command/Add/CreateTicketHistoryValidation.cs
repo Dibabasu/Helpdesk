@@ -1,12 +1,8 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
 
 namespace Helpdesk.Application.BusinessLogic.TicketHistoryBL.Command.Add
 {
-  public  class CreateTicketHistoryValidation : AbstractValidator<CreateTicketHistoryCommand>
+    public class CreateTicketHistoryValidation : AbstractValidator<CreateTicketHistoryCommand>
     {
         public CreateTicketHistoryValidation()
         {

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Helpdesk.Model.Models.Create
 {
-  public  class UserCreateModel
+    public class UserCreateModel
     {
         public Guid UserId { get; set; }
         public String UserName { get; set; }

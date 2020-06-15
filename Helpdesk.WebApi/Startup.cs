@@ -27,7 +27,7 @@ namespace Helpdesk.WebApi
         {
             services.AddModels();
             services.AddApplication();
-            
+
             services.AddControllersWithViews(options =>
                 options.Filters.Add(new ApiExceptionFilter()));
 

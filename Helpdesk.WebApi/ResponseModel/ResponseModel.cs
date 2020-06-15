@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Helpdesk.WebApi.ResponseModel
 {
@@ -26,7 +23,7 @@ namespace Helpdesk.WebApi.ResponseModel
             {
                 this.StatusCode = statusCode;
                 this.ErrorMessage = errorMessage;
-               
+
 
                 if (result != null)
                     Result = result;

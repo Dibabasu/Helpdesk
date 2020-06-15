@@ -12,7 +12,7 @@ namespace Helpdesk.Persistence.Configurations
 
             builder.Property(e => e.Response)
                 .IsRequired();
-          
+
 
             builder.Property(e => e.Status)
                 .IsRequired();

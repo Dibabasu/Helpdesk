@@ -17,10 +17,10 @@ namespace Helpdesk.Models
             configuration.CreateMap<Country, CountryModel>()
                 .ForMember(dto => dto.CountryName, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dto => dto.CountryCode, opt => opt.MapFrom(src => src.CountryCode))
-                
+
                 ;
 
-          
+
         }
     }
 }

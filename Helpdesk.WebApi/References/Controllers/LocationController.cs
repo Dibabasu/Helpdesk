@@ -1,7 +1,6 @@
 ﻿using Helpdesk.Application.BusinessLogic.LocationBL.Command.Add;
 using Helpdesk.Application.BusinessLogic.LocationBL.Query.GetAll;
 using Helpdesk.Application.BusinessLogic.LocationBL.Query.GetById;
-using Helpdesk.Domain.Entities;
 using Helpdesk.Models;
 using Helpdesk.WebApi.Controllers;
 using MediatR;

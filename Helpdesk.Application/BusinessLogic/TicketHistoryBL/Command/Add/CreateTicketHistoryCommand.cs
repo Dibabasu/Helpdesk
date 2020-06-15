@@ -3,15 +3,12 @@ using Helpdesk.Domain.Entities;
 using Helpdesk.Model.Models.Create;
 using Helpdesk.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Helpdesk.Application.BusinessLogic.TicketHistoryBL.Command.Add
 {
-   public class CreateTicketHistoryCommand : IRequest
+    public class CreateTicketHistoryCommand : IRequest
     {
         public TicketHistoryCreateModel TicketHistory { get; set; }
         public UserModel User { get; set; }
@@ -29,13 +26,13 @@ namespace Helpdesk.Application.BusinessLogic.TicketHistoryBL.Command.Add
             {
                 var entity = new HelpdeskTicketHistory
                 {
-                    CreatedBy=request.User.UserName,
-                    LastModifiedBy=request.User.UserName,
-                    Response=request.TicketHistory.Response,
-                    Status=request.TicketHistory.Status,
-                    TicketNumber=request.TicketHistory.TicketNumber,
-                    TicketId=request.TicketHistory.TicketId,
-                    ElapsedTime=request.TicketHistory.ElapsedTime
+                    CreatedBy = request.User.UserName,
+                    LastModifiedBy = request.User.UserName,
+                    Response = request.TicketHistory.Response,
+                    Status = request.TicketHistory.Status,
+                    TicketNumber = request.TicketHistory.TicketNumber,
+                    TicketId = request.TicketHistory.TicketId,
+                    ElapsedTime = request.TicketHistory.ElapsedTime
                 };
 
                 _context.Set<HelpdeskTicketHistory>().Add(entity);

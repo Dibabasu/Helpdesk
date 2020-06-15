@@ -7,15 +7,13 @@ using Helpdesk.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Helpdesk.Application.BusinessLogic.UserBL.Query.GetByUserName
 {
-   public class GetUserByUserNameQuery : IRequest<UserModel>
+    public class GetUserByUserNameQuery : IRequest<UserModel>
     {
         public String UserName { get; set; }
 

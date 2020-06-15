@@ -30,9 +30,28 @@ namespace Helpdesk.Persistence
         public DbSet<ApproverMapping> ApproverMappings { get; set; }
         public DbSet<ConsultantMapping> ConsultantMappings { get; set; }
 
+        public DbSet<LastTicket> LastTicket { get; set; }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
+
             foreach (var entry in ChangeTracker.Entries<AuditableEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+
+                        entry.Entity.Created = DateTime.UtcNow;
+                        entry.Entity.LastModified = DateTime.UtcNow;
+                        break;
+
+                    case EntityState.Modified:
+
+                        entry.Entity.LastModified = DateTime.UtcNow;
+                        break;
+                }
+            }
+            foreach (var entry in ChangeTracker.Entries<AuditableTicketEntity>())
             {
                 switch (entry.State)
                 {

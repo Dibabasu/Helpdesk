@@ -1,5 +1,5 @@
-﻿using Helpdesk.Application.BusinessLogic;
-using Helpdesk.Application.BusinessLogic.CountryBL.Command.Add;
+﻿using Helpdesk.Application.BusinessLogic.CountryBL.Command.Add;
+using Helpdesk.Application.BusinessLogic.CountryBL.Command.Remove;
 using Helpdesk.Application.BusinessLogic.CountryBL.Query.GetAll;
 using Helpdesk.Application.BusinessLogic.CountryBL.Query.GetById;
 using Helpdesk.Models;
@@ -48,8 +48,15 @@ namespace Helpdesk.WebApi.References.Controllers
 
         // DELETE api/<CountyController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
+
+            await Mediator.Send(new DeleteCountryCommand
+            {
+                Id = id,
+                UserModel = await this.GetUserDetails("Ruru")
+            });
+            return NoContent();
         }
     }
 }
