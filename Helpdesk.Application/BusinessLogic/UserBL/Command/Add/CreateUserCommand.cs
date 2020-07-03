@@ -3,6 +3,7 @@ using Helpdesk.Domain.Entities;
 using Helpdesk.Domain.ValueObjects;
 using Helpdesk.Model.Models.Create;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,7 +11,12 @@ namespace Helpdesk.Application.BusinessLogic.UserBL.Command.Add
 {
     public class CreateUserCommand : IRequest
     {
-        public UserCreateModel User { get; set; }
+        public Guid UserId { get; set; }
+        public String UserName { get; set; }
+        public String DepartmentName { get; set; }
+        public String Division { get; set; }
+        public String FirstMidName { get; set; }
+        public String LastName { get; set; }
 
         public class CreateCountryCommandHandler : IRequestHandler<CreateUserCommand, Unit>
         {
@@ -25,12 +31,12 @@ namespace Helpdesk.Application.BusinessLogic.UserBL.Command.Add
             {
                 var entity = new User
                 {
-                    CreatedBy = AdAccount.For(request.User.UserName).UserName,
-                    DepartmentName = request.User.DepartmentName,
-                    Division = request.User.Division,
-                    LastModifiedBy = AdAccount.For(request.User.UserName).UserName,
-                    Name = new Name(request.User.FirstMidName, request.User.LastName),
-                    AdAccount = AdAccount.For(request.User.UserName),
+                    CreatedBy = AdAccount.For(request.UserName).UserName,
+                    DepartmentName = request.DepartmentName,
+                    Division = request.Division,
+                    LastModifiedBy = AdAccount.For(request.UserName).UserName,
+                    Name = new Name(request.FirstMidName, request.LastName),
+                    AdAccount = AdAccount.For(request.UserName),
                 };
 
                 _context.Set<User>().Add(entity);

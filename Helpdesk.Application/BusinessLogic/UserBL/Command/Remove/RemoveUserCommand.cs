@@ -12,7 +12,7 @@ namespace Helpdesk.Application.BusinessLogic.UserBL.Command.Remove
 {
     public class RemoveUserCommand : IRequest
     {
-        private UserModel UserModel { get; set; }
+        public String UserName { get; set; }
         public Guid Id { get; set; }
 
         public bool IsDeleted
@@ -41,7 +41,7 @@ namespace Helpdesk.Application.BusinessLogic.UserBL.Command.Remove
                 }
 
                 entity.IsDeleted = request.IsDeleted;
-                entity.LastModifiedBy = request.UserModel.UserName;
+                entity.LastModifiedBy = request.UserName;
                 await _context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

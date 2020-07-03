@@ -2,7 +2,7 @@
 
 namespace Helpdesk.WebApi.ResponseModel
 {
-    public class ResponseModel
+    public class Response
     {
         public int StatusCode { get; set; }
         public string ErrorMessage { get; set; }
@@ -17,7 +17,7 @@ namespace Helpdesk.WebApi.ResponseModel
         /// <param name="result"></param>
         /// <param name="errorMessage"></param>
         /// <param name="lastSyncDateTime"></param>
-        public ResponseModel(int statusCode, object result = null, string errorMessage = "")
+        public Response(int statusCode, object result = null, string errorMessage = "")
         {
             try
             {

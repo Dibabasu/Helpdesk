@@ -6,6 +6,7 @@ using Helpdesk.Models;
 using Helpdesk.WebApi.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
 
@@ -17,6 +18,11 @@ namespace Helpdesk.WebApi.References.Controllers
     [ApiController]
     public class CountyController : ApiController
     {
+        private readonly IConfiguration Configuration;
+        public CountyController(IConfiguration config)
+        {
+            Configuration = config;
+        }
         // GET: api/<CountyController>
         [HttpGet]
         public async Task<ActionResult<CountryListModel>> Get()

@@ -5,6 +5,7 @@ using Helpdesk.Persistence;
 using Helpdesk.WebApi.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,16 +64,18 @@ namespace Helpdesk.WebApi
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+             app.UseRouting();
 
-            app.UseAuthorization();
+             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+             app.UseEndpoints(endpoints =>
+             {
+                 endpoints.MapControllers();
+             });
 
             ctx.Database.Migrate();
+
+           
         }
     }
 }
